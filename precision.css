@@ -1,0 +1,229 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Rubik+Mono+One&display=swap");
+
+/* Reset & Base Styles */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+/* Reset & Base Styles */
+:root {
+  --primary: #20714b; /* 60% */
+  --background: #ffffff; /* 30% */
+  --accent-yellow: #ffc845;
+  --accent-orange: #ff7070;
+  --accent-purple: #8c4aa1; /* 10% split */
+  --text-dark: #252525;
+
+  /* Font Variables */
+  --font-text: "Montserrat", sans-serif;
+  --font-header: "Rubik Mono One", monospace;
+  --font-weight-bold: 700;
+  --font-size-base: 1rem;
+  --font-size-sm: 0.87rem;
+  --font-size-lg: 2rem;
+  --font-size-xl: 3rem;
+  /* Font Variables */
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-text);
+  font-optical-sizing: auto;
+  background-color: var(--background);
+  color: var(--text-dark);
+  line-height: 1.6;
+}
+/*Global Styles*/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-header);
+  margin-bottom: 1rem;
+  color: var(--primary);
+}
+
+p {
+  margin-bottom: 1rem;
+  font-size: var(--font-size-base);
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+/*Global Styles*/
+
+/*Standard Block Styles*/
+.standard-block {
+  margin: 2rem 0;
+  padding: 1.5rem;
+}
+/*Standard Block Styles*/
+/*wrapper-styles*/
+.content-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+.flexbox-wrapper {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+.flexbox-wrapper-card {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+/*wrapper-styles*/
+
+/*Card Styling*/
+.card {
+  max-width: 300px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 1rem;
+}
+.card-title {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  color: var(--primary);
+}
+.card-text {
+  font-size: 0.9rem;
+  color: var(--text-dark);
+}
+/*Card Styling*/
+
+/*Navigation Bar*/
+.navbar {
+  background-color: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.logo {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  text-decoration: none;
+}
+.desktop-nav ul {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+.desktop-nav a,
+.mobile-nav a {
+  color: var(--text-color);
+  text-decoration: none;
+  transition: color var(--transition-speed);
+}
+.desktop-nav a {
+  font-weight: 500;
+}
+.desktop-nav a:hover,
+.mobile-nav a:hover {
+  color: var(--primary-light);
+}
+.mobile-toggle {
+  display: none;
+  background: 0 0;
+  border: 0;
+  cursor: pointer;
+  padding: 0.5rem;
+  z-index: 1000;
+}
+.mobile-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--primary-color);
+  margin: 5px 0;
+  transition: all var(--transition-speed);
+}
+.mobile-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(5px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--transition-speed),
+    visibility var(--transition-speed);
+}
+.mobile-nav ul {
+  list-style: none;
+  text-align: center;
+  padding: 0;
+}
+.mobile-nav li {
+  margin: 1.5rem 0;
+}
+.mobile-nav a {
+  font-size: 1.5rem;
+}
+.mobile-nav.active {
+  opacity: 1;
+  visibility: visible;
+}
+.mobile-nav.active ul li {
+  animation: fadeIn 0.5s ease forwards;
+}
+.mobile-nav.active ul li:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.mobile-nav.active ul li:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.mobile-nav.active ul li:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.mobile-nav.active ul li:nth-child(4) {
+  animation-delay: 0.4s;
+}
+.mobile-toggle.active span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.mobile-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+.mobile-toggle.active span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+@media (max-width: 768px) {
+  .desktop-nav {
+    display: none;
+  }
+  .mobile-toggle {
+    display: block;
+  }
+}
+/*Navigation Bar*/
